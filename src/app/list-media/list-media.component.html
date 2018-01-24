@@ -1,3 +1,39 @@
+<input [(ngModel)]="stopName">
+<button class="btn btn-primary" (click)="getStop"></button>
+
+<div *ngFor="let stop of stopArray">
+  <h3>{{stop.name}}</h3>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let line of stopArray">
+      <p>{{line.route.shortName}} {{line.route.longName}}</p>
+    </li>
+  </ul>
+</div>
+
+<!-- alla toimivaa toimii -->
+
+<ul>
+    <li *ngFor="let stop of stopArray">
+      <p *ngFor="let i of stop.patterns">
+        {{i.route.shortName}}
+      </p>
+    </li>
+</ul>
+
 <p>
-  list-media works!
+  {{printThis}}
 </p>
+
+<ul>
+  <li *ngFor="let media of mediaArray">
+    <div class="card" style="width: 20rem;">
+      <img class="card-img-top" [src]="mediaService.mediaUrl + media.thumbnail">
+      <div class="card-block">
+        <h4>{{media.title}}</h4>
+        <p>{{media.description}}</p>
+      </div>
+    </div>
+  </li>
+</ul>
+
+
